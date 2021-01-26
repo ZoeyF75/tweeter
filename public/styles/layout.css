@@ -21,7 +21,15 @@ body {
   font-size: 24px;
 }
 
+main {
+  display: flex;
+  box-sizing: unset;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: #f4f1ec;
+}
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
