@@ -1,9 +1,10 @@
 $(document).ready(function() {
-  let count = 140;
-  document.addEventListener("input", (event) => {
-     //data @ backspace is null so if not data then add to count else subtract if there is data
-    !event['data'] ? count++ : count--;
-  })
-  return count;
+  $('#tweet-text').on('input', function() {
+    let counter = 140 - this.value.length;
+    $('output').text(counter);
+    counter < 0 ? $('output').css('color', 'red') : $('output').css('color', '#545149');
+  });
 });
+
+
 
