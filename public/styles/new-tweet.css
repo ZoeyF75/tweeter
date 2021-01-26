@@ -1,0 +1,43 @@
+/* main specifics */
+.new-tweet {
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5em; 
+  /* justify-content: stretch;
+  width: max-content;  */
+}
+
+textarea {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  /* resize means that you can't adjust input box, hides the triangle in bottom corner */
+  resize: none;
+  font-size: 14px;
+  border-bottom: 5px dotted #4056A1;
+  
+}
+
+/* tweet button */
+button {
+  color: white;
+  background-color: #4056A1;
+}
+
+/* word count and button placement */
+div { 
+  display: flex;
+  margin-top: 0.5em;
+  justify-content: space-between;
+  font-family: 'Bungee', cursive;
+  font-size: 20px;
+}
+
+label {
+  border-bottom: 5px dotted #4056A1;
+  margin-bottom: 0.5em;
+}
