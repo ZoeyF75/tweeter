@@ -6,7 +6,7 @@
 form {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.5em; 
+  /* margin-bottom: 1.5em;  */
   /* justify-content: stretch;
   width: max-content;  */
 }
@@ -19,7 +19,6 @@ textarea {
   resize: none;
   font-size: 14px;
   border-bottom: 5px dotted #4056A1;
-  
 }
 
 /* tweet button */
@@ -29,7 +28,7 @@ button {
 }
 
 /* word count and button placement */
-div { 
+.new-tweet div { 
   display: flex;
   margin-top: 0.5em;
   justify-content: space-between;

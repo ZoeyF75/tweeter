@@ -13,13 +13,16 @@
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
     
     <!-- App CSS -->
+    
     <link rel="stylesheet" href="styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="styles/header.css" type="text/css" />
     <link rel="stylesheet" href="styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="styles/tweet-container.css" type="text/css" />
 
     <!-- External JS // jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/2659611461.js" crossorigin="anonymous"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
@@ -34,7 +37,7 @@
     </nav>
 
     <!-- hard coded profile info -->
-    <header>
+    <header class="profile">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -60,6 +63,29 @@
         </form>
 
       </section>
+
+      <article class="tweet-container">
+    
+          <header> 
+            <div class="user">
+              <img src="/images/profile-hex.png"></img>
+              <span class="user">Name</span>
+            </div>
+            <span class="username">@username</span>
+          </header>
+
+          <title>This is my tweet text</title>
+          <footer>
+            <small>Posted 10 days ago</small>
+            <div class="subnotes">
+              <i class="fas fa-flag"></i>
+              <i class="fas fa-heart"></i>
+              <i class="fas fa-retweet"></i>
+            </div>
+          </footer>
+      
+        </article>
+
     </main>
 
   </body>
