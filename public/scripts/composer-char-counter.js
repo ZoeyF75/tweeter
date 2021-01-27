@@ -5,6 +5,3 @@ $(document).ready(function() {
     counter < 0 ? $('output').css('color', 'red') : $('output').css('color', '#545149');
   });
 });
-
-
-

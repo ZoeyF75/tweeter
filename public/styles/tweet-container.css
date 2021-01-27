@@ -1,4 +1,11 @@
 /* outline border and general container */
+.tweet-container article.tweet {
+  width: 100%;
+  border: 1px #4056A1 solid;
+  margin: 1.5em;
+  padding: 10px;
+}
+
 .tweet-container {
   display: flex;
   background-color: transparent;
@@ -9,7 +16,6 @@
   justify-content: space-between;
   width: 100%;
   margin: 5%;
-  border: 1px #4056A1 solid;
   font-size: 20px;
   padding: 1em;
   transition: box-shadow .3s;
@@ -17,7 +23,7 @@
 }
 
 /* header with class user which has image and name and username */
-.tweet-container header {
+.tweet-container article header {
   display: flex;
   width: 100%;
   background-color: transparent;
@@ -29,23 +35,29 @@
   margin-bottom: 1em;
 }
 
-.tweet-container .user {
+/* for name and avatar placement */
+.tweet-container article header div.user {
+  display: flex;
+  align-items: center;
+}
+
+.tweet-container article .name {
   display: flex;
   align-items: center;
 }
 
 /* profile picture and name */
-.tweet-container .user img {
+.tweet-container article .name img {
   width: 50px;
   height: 50px;
 }
 
 /* colours the username lighter */
-.username {
+.tweet-container .handle {
   color: #979b9ba6; 
 }
 
-.tweet-container title {
+.tweet-container article title {
   width: 100%;
   color: rgb(84,81,73);
   display: flex;
@@ -55,7 +67,7 @@
   margin-bottom: 1em;
 }
 
-.tweet-container footer {
+.tweet-container article footer {
   display:flex;
   width: 100%;
   background-color: transparent;
@@ -65,19 +77,19 @@
   height: min-content;
 }
 
-.tweet-container .subnotes {
+.tweet-container article .subnotes {
   display:flex;
   flex-direction: row;
   width: min-content;
   margin: 0.2em;
 }
 
-.subnotes .fas.fa-heart,
-.subnotes .fas.fa-flag {
+.tweet-container .subnotes .fas.fa-heart,
+.tweet-container .subnotes .fas.fa-flag {
   margin-right: 0.5em;
 }
 
-.tweet-container:hover {
+.tweet-container article:hover {
   box-shadow: 10px 10px 8px #888888; 
   opacity: 1;
 }
