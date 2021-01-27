@@ -3,7 +3,7 @@
   width: 100%;
 }
 
-form {
+.new-tweet form {
   display: flex;
   flex-direction: column;
   /* margin-bottom: 1.5em;  */
@@ -11,7 +11,7 @@ form {
   width: max-content;  */
 }
 
-textarea {
+.new-tweet textarea {
   background-color: transparent;
   outline: none;
   border: none;
@@ -22,7 +22,7 @@ textarea {
 }
 
 /* tweet button */
-button {
+.new-tweet button {
   color: white;
   background-color: #4056A1;
 }
@@ -36,7 +36,7 @@ button {
   font-size: 20px;
 }
 
-label {
+.new-tweet label {
   border-bottom: 5px dotted #4056A1;
   margin-bottom: 0.5em;
 }

@@ -56,11 +56,11 @@
 
         <h2>Compose Tweet</h2>
 
-        <form method="POST" action="/tweets/">
+        <form id="tweet-post" method="POST" action="/tweets/">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <div>
-            <button type="submit">Tweet</button>
+            <button id="post" type="submit">Tweet</button>
             <small><output name="counter" class="counter" for="tweet-text">140</output></small>
           </div>
         </form>
@@ -68,26 +68,7 @@
       </section>
 
       <section class="tweet-container">
-        <!-- <article> -->
-          <!-- <header> 
-            <div class="user">
-              <img src="">`${$tweet.avatar}`</img>
-              <span class="name"><script>`${$tweet.name}`</script></span>
-            </div>
-            <span class="handle">`${$tweet.handle}`</span>
-          </header>
-
-          <title>`${$tweet.content}`</title>
-          <footer>
-            <small>`${$tweet.time}`</small>
-            <div class="subnotes">
-              <i class="fas fa-flag"></i>
-              <i class="fas fa-heart"></i>
-              <i class="fas fa-retweet"></i>
-            </div>
-          </footer> -->
-      
-        <!-- </article> -->
+       <!-- client.js implements all html for this section -->
       </section>
 
     </main>

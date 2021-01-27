@@ -39,6 +39,8 @@
 .tweet-container article header div.user {
   display: flex;
   align-items: center;
+  /* width: min-content;
+  margin: 0.2em; */
 }
 
 .tweet-container article .name {
