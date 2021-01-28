@@ -5,37 +5,12 @@
  */
 
 // Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
-
 const renderTweets = function(tweets) {
+$('.tweet-container').empty(); 
 // loops through tweets, calls createTweetElement for each tweet, takes return value and appends it to the tweets container
 for (item of tweets) { // console.log => [object, object];
     let $tweet = createTweetElement(item);
-    $('.tweet-container').append($tweet);
+    $('.tweet-container').prepend($tweet);
   }
 }
 
@@ -64,50 +39,43 @@ return $tweet;
 }
 
 $(document).ready(function() { //waits for DOM
-  renderTweets(data);
-  let newTweet = [
-    {
-      "user": {
-        "name": "Name",
-        "avatars": "https://i.imgur.com/73hZDYK.png",
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    }
-  ]
-  const loadTweets = (formData) => {
-    // $('button').click(function(){
-      // const tweetData = { 'tweet-text': $('textarea[name=text]').serialize() };
-      $.get('http://localhost:8080/tweets', formData , function(data){
-        // Display the returned data in browser
-        $("#tweet-post").html(data);
-        console.log("get");
-        return data;
-      });
-    // });
+  const loadTweets = () => {
+    $.get('/tweets/', function(data){
+      // Display the returned data in browser
+       renderTweets(data);
+    });
   }
+
+  const tweetValidate = () => {
+    if ($('textarea[name=text]').val().length > 140) {
+        alert('Error your tweet exceeds the maximum word count :(');
+        $('textarea[name=text]').val() = ""; //empty input doesn't post form
+        return false;
+    } else if ($('textarea[name=text]').val().length === 0) {
+      alert('head empty?... why not try thinking');
+      return false;
+    }
+  }
+
+  function eraseText() {
+    $('form').trigger("reset");
+    $(".counter").text(140);
+  }
+
+  loadTweets();
 
   $(function() {
     const $button = $('#post'); //submit button with post id
-    $button.on('click', function () { //when its clicked
-      console.log('Submit activated, performing ajax call...');
+    $button.on('click', function (event) { //when its clicked
       event.preventDefault(); //prevents page reload
-      const formData = {
-        'tweet-text': $('textarea[name=text]').serialize()
-      }
-      loadTweets(formData);
-      renderTweets(newTweet);
-      console.log(formData);
-        $.ajax('/index.html', 'POST')
-        .then(function (formData) {
-        console.log('Success: ', formData );
-        newTweet['content']['text'] = formData;
-        
-        // $(".tweetcontainer.".append(get(renderTweets(newTweet))));
+      tweetValidate();
+      const formData = $('textarea[name=text]').serialize() 
+      $.ajax({ url: '/tweets/', method: 'POST', data: formData})
+        .then(function () {
+        loadTweets();
+        eraseText();
       });
+      // .catch(err => console.log('AJAX error caught ->', err));
     });
   });
 });
