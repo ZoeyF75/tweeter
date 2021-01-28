@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="styles/header.css" type="text/css" />
     <link rel="stylesheet" href="styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="styles/tweet-container.css" type="text/css" />
+    <link rel="stylesheet" href="styles/error.css" type="text/css" />
 
     <!-- External JS // jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -53,12 +54,18 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        
+        <div class="error" style="display:none">
+          <i class="ico">&#9888;</i> Please stick to the word limit!
+          <div class="close" onclick="this.parentElement.remove()">X</div>
+        </div>
 
         <h2>Compose Tweet</h2>
 
         <form id="tweet-post" method="POST" action="/tweets/">
           <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
+          <textarea name="text" id="tweet-text" required minlength="1"></textarea>
+          <div id ="errors"></div>
           <div>
             <button id="post" type="submit">Tweet</button>
             <small><output name="counter" class="counter" for="tweet-text">140</output></small>

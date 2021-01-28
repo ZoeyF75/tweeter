@@ -4,7 +4,13 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// Fake data taken from initial-tweets.json
+
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 const renderTweets = function(tweets) {
 $('.tweet-container').empty(); 
 // loops through tweets, calls createTweetElement for each tweet, takes return value and appends it to the tweets container
@@ -24,7 +30,7 @@ const createTweetElement = function(tweet) {
           </div>
           <span class="handle">${tweet['user']['handle']}</span>
     </header>
-    <title>${tweet['content']['text']}</title>
+    <title>${escape(tweet['content']['text'])}</title>
         <footer>
             <small>${moment(tweet['created_at']).fromNow()}</small>
             <div class="subnotes">
@@ -48,37 +54,31 @@ $(document).ready(function() { //waits for DOM
 
   const tweetValidate = () => {
     if ($('textarea[name=text]').val().length > 140) {
-        alert('Error your tweet exceeds the maximum word count :(');
-        $('textarea[name=text]').val() = ""; //empty input doesn't post form
-        return false;
-    } else if ($('textarea[name=text]').val().length === 0) {
-      alert('head empty?... why not try thinking');
-      return false;
+        $('.error').slideDown( "slow", function() {});
+    } else if ($('textarea[name=text]').val() === '' || $('textarea[name=text]').val() === null) {
+      //$('.error').slideDown( "slow", function() {});
     }
   }
 
-  function eraseText() {
+  const eraseText = () => {
     $('form').trigger("reset");
     $(".counter").text(140);
   }
 
   loadTweets();
 
-  $(function() {
-    const $button = $('#post'); //submit button with post id
-    $button.on('click', function (event) { //when its clicked
+  
+  $("form").on('submit', function (event) { //when its clicked
       event.preventDefault(); //prevents page reload
-      tweetValidate();
+      $('.error').hide();
       const formData = $('textarea[name=text]').serialize() 
+      tweetValidate();
       $.ajax({ url: '/tweets/', method: 'POST', data: formData})
-        .then(function () {
+        .then(() => {
         loadTweets();
         eraseText();
-      });
-      // .catch(err => console.log('AJAX error caught ->', err));
-    });
+      })
+      .catch(err => console.log('AJAX error caught ->', err));
   });
 });
-
-
 

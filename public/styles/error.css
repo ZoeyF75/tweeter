@@ -1,0 +1,25 @@
+.error {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  color: #ba3939;
+  background: #ffe0e0;
+  border: 1px solid #a33a3a;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* [ICONS] */
+i.ico {
+  /* display: inline-block; */
+  width: 20px;
+  text-align: center; 
+  font-style: normal;
+}
+
+/* [CLOSE BUTTON] */
+.error div.close {
+  top: 30%;
+  right: 10px;
+  color: #888;
+  cursor: pointer;
+}
