@@ -1,14 +1,12 @@
 /* main specifics */
 .new-tweet {
   width: 100%;
+  margin-top: 1.5em;
 }
 
 .new-tweet form {
   display: flex;
   flex-direction: column;
-  /* margin-bottom: 1.5em;  */
-  /* justify-content: stretch;
-  width: max-content;  */
 }
 
 .new-tweet textarea {
@@ -37,6 +35,8 @@
 }
 
 .new-tweet label {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   border-bottom: 5px dotted #4056A1;
   margin-bottom: 0.5em;
 }

@@ -1,0 +1,16 @@
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
+  header.profile {
+    width: 25%;
+    float: left;
+    margin-top: 7em;
+    margin-left: 1.5em;
+  }
+  main {
+    max-width: 1024px;
+    /* 7 minus 1.5 for new-tweet has margin of 1.5, padding .5 on label */
+    margin-top: 5.0em;
+    width: 60%;
+    float: right
+  }
+}
