@@ -5,6 +5,7 @@
   margin: 1.5em;
   margin-top: auto;
   padding: 10px;
+  opacity: 0.5;
 }
 
 .tweet-container {
@@ -20,7 +21,6 @@
   font-size: 20px;
   padding: 1em;
   transition: box-shadow .3s;
-  opacity: 0.7;
 }
 
 /* header with class user which has image and name and username */
@@ -40,8 +40,6 @@
 .tweet-container article header div.user {
   display: flex;
   align-items: center;
-  /* width: min-content;
-  margin: 0.2em; */
 }
 
 .tweet-container article .name {

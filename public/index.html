@@ -38,7 +38,7 @@
     <!-- Top nav bar (fixed) -->
     <nav> 
       <span class="navbarTxt">tweeter</span>
-      <span class="navbarCreate">Write a new tweet</span>
+      <label for="tweet-text" class="asText">Write a new tweet</label>
     </nav>
 
     <!-- hard coded profile info -->
@@ -48,7 +48,7 @@
       </div>
       <br>
       <div>
-          <h2>Your Name</h2>
+          <h2>Remy Ratitouille</h2>
       </div>
     </header>
 
@@ -56,10 +56,10 @@
     <main class="container">
       <section class="new-tweet">
         
-        <div class="error" style="display:none">
+        <figure class="error" style="display:none">
           <i class="ico">&#9888;</i> Please stick to the word limit!
-          <div class="close" onclick="this.parentElement.remove()">X</div>
-        </div>
+          <figure class="close" onclick="this.parentElement.remove()">X</figure>
+        </figure>
 
         <form id="tweet-post" method="POST" action="/tweets/">
           <label for="tweet-text">What are you humming about?</label>

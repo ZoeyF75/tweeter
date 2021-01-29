@@ -1,5 +1,8 @@
 /* Desktop styles */
 @media only screen and (min-width: 1024px) {
+  nav {
+    background-color: #4056A1;
+  }
   header.profile {
     width: 25%;
     float: left;

@@ -1,7 +1,8 @@
 .error {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: row;
+  justify-content: space-between;
   color: #ba3939;
   background: #ffe0e0;
   border: 1px solid #a33a3a;
@@ -10,16 +11,17 @@
 
 /* [ICONS] */
 i.ico {
-  /* display: inline-block; */
+  padding: 0.5em;
   width: 20px;
   text-align: center; 
   font-style: normal;
 }
 
 /* [CLOSE BUTTON] */
-.error div.close {
-  top: 30%;
-  right: 10px;
-  color: #888;
+.error figure.close {
+  padding: 0.5em;
+  margin: 0;
+  text-align: center; 
+  color: #a33a3a;
   cursor: pointer;
 }

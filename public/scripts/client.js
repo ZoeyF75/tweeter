@@ -25,12 +25,12 @@ const createTweetElement = function(tweet) {
     `<article class="tweet">
       <header> 
           <div class="user">
-            <img src="${tweet['user']['avatars']}"></img>
+            <img src="${tweet['user']['avatars']}" alt=''/> 
             <span class="name">${tweet['user']['name']}</span>
           </div>
           <span class="handle">${tweet['user']['handle']}</span>
     </header>
-    <title>${escape(tweet['content']['text'])}</title>
+    <p>${escape(tweet['content']['text'])}</p>
         <footer>
             <small>${moment(tweet['created_at']).fromNow()}</small>
             <div class="subnotes">
@@ -55,9 +55,11 @@ $(document).ready(function() { //waits for DOM
   const tweetValidate = () => {
     if ($('textarea[name=text]').val().length > 140) {
         $('.error').slideDown( "slow", function() {});
+        return false;
     } else if ($('textarea[name=text]').val() === '' || $('textarea[name=text]').val() === null) {
       //$('.error').slideDown( "slow", function() {});
-    }
+    } 
+    return true;
   }
 
   const eraseText = () => {
@@ -72,13 +74,16 @@ $(document).ready(function() { //waits for DOM
       event.preventDefault(); //prevents page reload
       $('.error').hide();
       const formData = $('textarea[name=text]').serialize() 
-      tweetValidate();
+      if (tweetValidate()) {
       $.ajax({ url: '/tweets/', method: 'POST', data: formData})
         .then(() => {
         loadTweets();
         eraseText();
       })
       .catch(err => console.log('AJAX error caught ->', err));
+      } else {
+        return;
+      }
   });
 });
 
