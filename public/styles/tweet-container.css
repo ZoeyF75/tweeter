@@ -58,8 +58,7 @@
   color: #979b9ba6; 
 }
 
-.tweet-container article title {
-  width: 100%;
+.tweet-container article p {
   color: rgb(84,81,73);
   display: flex;
   align-items: flex-start;
@@ -70,7 +69,7 @@
 
 .tweet-container article footer {
   display:flex;
-  width: 100%;
+  
   background-color: transparent;
   flex-direction: row;
   align-items: center;
