@@ -9,7 +9,7 @@
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-/* [ICONS] */
+/* icons */
 i.ico {
   padding: 0.5em;
   width: 20px;
@@ -17,7 +17,7 @@ i.ico {
   font-style: normal;
 }
 
-/* [CLOSE BUTTON] */
+/* close button */
 .error figure.close {
   padding: 0.5em;
   margin: 0;

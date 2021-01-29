@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
-    <!-- Meta Information -->
+  <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
-
+   
     <!-- Fonts -->
     <link href="<link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@1,300&display=swap" rel="stylesheet">
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+    
     
     <!-- App CSS -->
-    
     <link rel="stylesheet" href="styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="styles/header.css" type="text/css" />
@@ -25,13 +25,14 @@
     <!-- External JS // jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/2659611461.js" crossorigin="anonymous"></script>
+   
     <!-- moment JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="module" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-   
+    <script type="text/javascript" src="/scripts/helperFuncs.js"><</script>
   </head>
 
   <body>
@@ -56,6 +57,7 @@
     <main class="container">
       <section class="new-tweet">
         
+        <!-- changed warning notification from div to figure to avoid inheritance issues -->
         <figure class="error" style="display:none">
           <i class="ico">&#9888;</i> Please stick to the word limit!
           <figure class="close" onclick="this.parentElement.remove()">X</figure>
@@ -64,7 +66,7 @@
         <form id="tweet-post" method="POST" action="/tweets/">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text" required minlength="1"></textarea>
-          <div id ="errors"></div>
+    
           <div>
             <button id="post" type="submit">Tweet</button>
             <small><output name="counter" class="counter" for="tweet-text">140</output></small>
